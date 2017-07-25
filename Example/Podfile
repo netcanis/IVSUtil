@@ -1,11 +1,6 @@
 use_frameworks!
-
-target 'IVSUtil_Example' do
+target 'IVSUtil_Tests' do
   pod 'IVSUtil', :path => '../'
-
-  target 'IVSUtil_Tests' do
-    inherit! :search_paths
-
-    
-  end
+  
+  
 end

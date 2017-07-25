@@ -1,6 +1,0 @@
-framework module Pods_IVSUtil_Example {
-  umbrella header "Pods-IVSUtil_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

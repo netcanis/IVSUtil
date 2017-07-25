@@ -2,7 +2,7 @@
 //  IVSUtil.h
 //  Pods
 //
-//  Created by Sung Hwan Cho on 25/07/2017.
+//  Created by netcanis on 25/07/2017.
 //
 //
 

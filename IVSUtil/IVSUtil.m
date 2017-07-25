@@ -770,34 +770,11 @@ static CGMutablePathRef roundClippingPath;
     }
 }
 
-// 이미지 저장 및 업로드
 + (void)saveImagesToAlbum:(NSMutableArray *)images
 {
     for (UIImage *image in images) {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);// (__bridge void*)nil);
     }
-}
-
-+ (void)downloadImageAndSave:(NSString *)imgUrl
-                     message:(NSString *)message
-{
-//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:imgUrl]
-//                                                          options:SDWebImageDownloaderUseNSURLCache
-//                                                         progress:nil
-//                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-//                                                            
-//                                                            if (image && finished) {
-//                                                                UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void*)imgUrl);
-//                                                                
-//                                                                if (NO == [IVSUtil IsEmpty:message]) {
-//                                                                    [Toast toastWithMessage:message
-//                                                                                   duration:2.0f
-//                                                                                      align:ToastAlignBottom
-//                                                                                   fontSize:12.0f
-//                                                                            backgroundColor:[UIColor blackColor]];
-//                                                                }
-//                                                            }
-//                                                        }];
 }
 
 + (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -809,26 +786,6 @@ static CGMutablePathRef roundClippingPath;
     if (nil != error) {
         UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), contextInfo);
     }
-}
-
-+ (void)downloadImagesAndShare:(NSString *)imgUrl
-                      shareurl:(NSString *)shareurl
-{
-//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:imgUrl]
-//                                                          options:SDWebImageDownloaderUseNSURLCache
-//                                                         progress:nil
-//                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-//                                                            NSMutableArray *urlArray = [[NSMutableArray alloc] init];
-//                                                            
-//                                                            NSCharacterSet *allowedCharacterSet = [NSCharacterSet URLQueryAllowedCharacterSet];
-//                                                            NSURL *URL = [NSURL URLWithString:[shareurl stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet]];
-//                                                            [urlArray addObject:URL];
-//                                                            [urlArray addObject:image];
-//                                                            
-//                                                            [IVSUtil shareData:[AppDelegate Instance].window.rootViewController
-//                                                                         title:@""
-//                                                                         param:urlArray];
-//                                                        }];
 }
 
 

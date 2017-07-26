@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IVSUtil'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A util functions library for Objective-C.'
 
 # This description is used to generate tags and improve search results.
